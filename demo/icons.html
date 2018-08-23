@@ -8,9 +8,10 @@
       <meta http-equiv="refresh" content="0;url=https://static.scania.com/vendors/components/pure-js/nonJS-browsers/1.0.0/nonJS-browsers.html">
     </noscript>
 
-    <title>Corporate UI - Developers</title>
+    <title>Corporate UI - Icons</title>
 
     <script src="/js/corporate-ui.js"></script>
+
     <link rel="stylesheet" href="css/ux-library.css">
   </head>
 
@@ -46,8 +47,37 @@
 
       <section class="light">
         <div class="container">
-          <h1>Corporate UI for Developers</h1>
-          <p>In this repository you can find tools and information to help you further develop and test new components and validate changes to existing ones.</p>
+          <h2>icons</h2>
+
+          <!-- <script src="https://static.scania.com/vendors/frameworks/jquery/1.11.3/jquery-1.11.3.min.js"></script> -->
+          <script type="text/javascript">
+            var requestURL = '/iconsFa5.json';
+
+            var request = new XMLHttpRequest();
+            request.open('GET', requestURL);
+
+            request.responseType = 'json';
+            request.send();
+
+            request.onload = function() {
+              var icons = request.response;
+
+              for(var i in icons) {
+
+                var iconSpan = document.createElement("span");
+                  iconListDiv = document.getElementById('icon-list');
+                  iconPrefix = i.slice(0,3)
+                  iconName = i.slice(4)
+
+                iconSpan.classList.add(iconPrefix);
+                iconSpan.classList.add(iconName);
+
+                iconListDiv.appendChild(iconSpan)
+              }
+            }
+
+          </script>
+          <div id="icon-list"></div>
         </div>
       </section>
     </c-main-content>
