@@ -12,7 +12,8 @@ Polymer({
       observer: 'initMoreItem'
     },
     moreItems: {
-      type: Array
+      type: Array,
+      value: []
     },
     fullbleed: {
       type: Boolean,
@@ -85,11 +86,26 @@ Polymer({
     // this.querySelector('.navbar-toggle').classList.add('collapsed');
   },
   setItemActive: function(event) {
-    var parent = event.target.parentNode;
+    // Stop here if current item is the more item
+    if (event.target.classList.contains('more')) {
+      return
+    }
+
+    var parent = event.target.parentNode,
+        index = Array.prototype.indexOf.call(parent.children, event.target)
     if (parent.preActive && parent.preActive !== event.target) {
       parent.preActive.active = false;
     }
     parent.preActive = event.target;
+
+    if(this.moreItems) {
+      this.moreItems.map((function(item, key) {
+        if (item.className) {
+          this.set('moreItems.' + key + '.className', '');
+        }
+      }).bind(this))
+      this.set('moreItems.' + index + '.className', 'active');
+    }
 
     // $('.navbar-toggle').trigger('click');
     this.setHeaderSize.call(this);
@@ -145,9 +161,6 @@ Polymer({
     if(!val) {
       return;
     }
-
-    this.moreItems = [];
-
     // Async is used to make sure template has rerendered before
     // continuing. Else dropdown nav-item is not rendered
     this.async(function() {
@@ -156,6 +169,10 @@ Polymer({
           styleElm = this.querySelector('style'),
           dropdown = this.querySelector('.dropdown-toggle'),
           availableSpace = this.offsetWidth - (secondary ? secondary.offsetWidth + 2 : 0);
+
+      if (primary.children.length !== this.moreItems.length) {
+        this.moreItems = [];
+      }
 
       primary.style.width = ( availableSpace - dropdown.offsetWidth ) + 'px';
 
@@ -170,7 +187,7 @@ Polymer({
         if(item.offsetTop && !styleElm.innerText) {
           var css = '\
             @media (min-width: 991px) {\
-              c-main-navigation nav-item:nth-child(1n+' + i + ') { display: none; } \
+              c-main-navigation nav-item:nth-child(1n+' + i + ') > a { display: none; } \
               c-main-navigation .more li:nth-child(1n+' + i + ') { display: block; } \
             }';
           if (styleElm.styleSheet){
@@ -180,7 +197,7 @@ Polymer({
           }
         }
 
-        if (node) {
+        if (primary.children.length !== this.moreItems.length && node) {
           this.push('moreItems', {
             text: node.text,
             href: node.getAttribute('href')
@@ -193,6 +210,12 @@ Polymer({
       this.moreItemsAvailable = false;
       this.setHeaderSize.call(this);
     });
+  },
+  setMoreItemActive: function(event) {
+    var trigger = event.target.parentNode,
+        index = Array.prototype.indexOf.call(trigger.parentNode.children, trigger);
+
+    this.querySelector('primary-items').children[index].active = true;
   },
   navigationClose: function() {
     var hamburger = this.header.querySelector('.navbar-toggle');

@@ -40,10 +40,14 @@
       // Why is this actually set to "display: none;" ?
       display: inline-block !important;
 
+      > a {
+        &:extend(.navbar-default .navbar-nav > li + li > a all);
+      }
+
       li {
         display: none;
-      }
-      > a {
+
+        a {
           text-transform: uppercase;
           padding-top: 9px;
           padding-bottom: 9px;
@@ -51,8 +55,7 @@
           &:hover {
            background-color: transparent;
           }
-
-          &:extend(.navbar-default .navbar-nav > li + li > a all);
+        }
       }
     }
     .dropdown-menu {

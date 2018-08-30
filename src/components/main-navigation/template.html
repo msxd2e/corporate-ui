@@ -10,8 +10,8 @@
         </a>
         <ul class="dropdown-menu">
           <template is="dom-repeat" items="{{moreItems}}">
-            <li>
-              <a href="{{item.href}}">{{item.text}}</a>
+            <li class$="{{item.className}}">
+              <a href="{{item.href}}" on-click="setMoreItemActive">{{item.text}}</a>
             </li>
           </template>
         </ul>
