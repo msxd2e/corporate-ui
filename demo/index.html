@@ -12,6 +12,7 @@
 
     <script src="/js/corporate-ui.js"></script>
     <link rel="stylesheet" href="css/ux-library.css">
+
   </head>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -52,7 +53,15 @@
       </section>
     </c-main-content>
 
-    <c-corporate-footer></c-corporate-footer>
+    <link rel="import" href="/components/social-media/social-media.html">
+    <c-corporate-footer>
+      <c-social-media>
+        <nav-item location="#" icon="facebook"></nav-item>
+        <nav-item location="#" icon="twitter"></nav-item>
+        <nav-item location="#" icon="youtube"></nav-item>
+        <nav-item location="#" icon="linkedin"></nav-item>
+      </c-social-media>
+    </c-corporate-footer>
 
     <script src="js/ux-library.js"></script>
   </body>
