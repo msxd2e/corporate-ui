@@ -1,95 +1,234 @@
 <!DOCTYPE html>
 
 <html lang="en-GB" ng-app="CorporateUI">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <noscript>
-      <meta http-equiv="refresh" content="0;url=https://static.scania.com/vendors/components/pure-js/nonJS-browsers/1.0.0/nonJS-browsers.html">
-    </noscript>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=https://static.scania.com/vendors/components/pure-js/nonJS-browsers/1.0.0/nonJS-browsers.html">
+  </noscript>
 
-    <title>Corporate UI - Icons</title>
+  <title>Corporate UI - Icons</title>
 
-    <script src="/js/corporate-ui.js"></script>
+  <script src="/js/corporate-ui.js"></script>
 
-    <link rel="stylesheet" href="css/ux-library.css">
+  <link rel="stylesheet" href="css/ux-library.css">
 
-    <style type="text/css">
-      span {
-        margin: 5px;
-      }
-    </style>
-  </head>
+  <style type="text/css">
+    span {
+      margin: 5px;
+    }
+    .span3 {
+      margin: 5px;
+      display: inline;
+    }
+  </style>
+</head>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110069805-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110069805-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    gtag('config', 'UA-110069805-1');
-  </script>
+  gtag('config', 'UA-110069805-1');
+</script>
 
-  <body class="scania ux-lib" data-env="dev" ng-controller="UxLib as uxlib">
+<body class="scania ux-lib" data-env="dev" ng-controller="UxLib as uxlib">
 
-    <c-corporate-header site-name="Developers" site-url="/">
-      <nav-item location="https://github.scania.com/pages/Scania/ux-library/">UX Library</nav-item>
-      <nav-item location="https://github.scania.com/scania/corporate-ui">Scania GitHub</nav-item>
-    </c-corporate-header>
+  <c-corporate-header site-name="Developers" site-url="/">
+    <nav-item location="https://github.scania.com/pages/Scania/ux-library/">UX Library</nav-item>
+    <nav-item location="https://github.scania.com/scania/corporate-ui">Scania GitHub</nav-item>
+  </c-corporate-header>
 
-    <c-main-content>
-      <c-main-navigation>
-        <primary-items>
-          <nav-item location="/" class="active">Home</nav-item>
-          <nav-item location="/components.html">Components</nav-item>
-          <nav-item location="/examples/">Examples</nav-item>
-          <nav-item location="/testing/testing.html">Testing</nav-item>
-          <nav-item location="deployment.html">Deployment</nav-item>
-          <nav-item location="https://github.com/scania/corporate-ui/issues/new/choose">Report an Issue</nav-item>
-          <nav-item location="https://scania.github.io/corporate-ui-docs/developer/support.html">Support</nav-item>
-        </primary-items>
-      </c-main-navigation>
+  <c-main-content>
+    <c-main-navigation>
+      <primary-items>
+        <nav-item location="/" class="active">Home</nav-item>
+        <nav-item location="/components.html">Components</nav-item>
+        <nav-item location="/examples/">Examples</nav-item>
+        <nav-item location="/testing/testing.html">Testing</nav-item>
+        <nav-item location="deployment.html">Deployment</nav-item>
+        <nav-item location="https://github.com/scania/corporate-ui/issues/new/choose">Report an Issue</nav-item>
+        <nav-item location="https://scania.github.io/corporate-ui-docs/developer/support.html">Support</nav-item>
+      </primary-items>
+    </c-main-navigation>
 
-      <section class="light">
-        <div class="container">
-          <h2>icons</h2>
+    <section class="light">
+      <div class="container">
+        <h2>icons</h2>
 
-          <!-- <script src="https://static.scania.com/vendors/frameworks/jquery/1.11.3/jquery-1.11.3.min.js"></script> -->
-          <script type="text/javascript">
-            var requestURL = '/iconsFa5.json';
+        <!-- <script src="https://static.scania.com/vendors/frameworks/jquery/1.11.3/jquery-1.11.3.min.js"></script> -->
+        <script type="text/javascript">
+          var requestURL = '/iconsFa5.json';
 
-            var request = new XMLHttpRequest();
-            request.open('GET', requestURL);
+          var request = new XMLHttpRequest();
+          request.open('GET', requestURL);
 
-            request.responseType = 'json';
-            request.send();
+          request.responseType = 'json';
+          request.send();
 
-            request.onload = function() {
-              var icons = request.response;
+          request.onload = function() {
+            var icons = request.response;
 
-              for(var i in icons) {
+            for(var i in icons) {
 
-                var iconSpan = document.createElement("span");
-                  iconListDiv = document.getElementById('icon-list');
-                  iconPrefix = i.slice(0,3)
-                  iconName = i.slice(4)
+              var iconSpan = document.createElement("span");
+              iconListDiv = document.getElementById('icon-list');
+              iconPrefix = i.slice(0,3)
+              iconName = i.slice(4)
 
-                iconSpan.classList.add(iconPrefix);
-                iconSpan.classList.add(iconName);
+              iconSpan.classList.add(iconPrefix);
+              iconSpan.classList.add(iconName);
 
-                iconListDiv.appendChild(iconSpan)
-              }
+              iconListDiv.appendChild(iconSpan)
             }
+          }
 
-          </script>
-          <div id="icon-list"></div>
+        </script>
+        <div id="icon-list"></div>
+        <div class="row the-icons">
+
+
+
+          <div class="span3">compass"><i class="icon-compass"></i> icon-compass</div>
+
+          <div class="span3">collapse"><i class="icon-collapse"></i> icon-collapse</div>
+
+          <div class="span3">collapse-top"><i class="icon-collapse-top"></i> icon-collapse-top</div>
+
+          <div class="span3">expand"><i class="icon-expand"></i> icon-expand</div>
+
+          <div class="span3">eur"><i class="icon-eur"></i> icon-eur</div>
+
+          <div class="span3">eur"><i class="icon-euro"></i> icon-euro <span class="muted">(alias)</span></div>
+
+          <div class="span3">gbp"><i class="icon-gbp"></i> icon-gbp</div>
+
+          <div class="span3">usd"><i class="icon-usd"></i> icon-usd</div>
+
+          <div class="span3">usd"><i class="icon-dollar"></i> icon-dollar <span class="muted">(alias)</span></div>
+
+          <div class="span3">inr"><i class="icon-inr"></i> icon-inr</div>
+
+          <div class="span3">inr"><i class="icon-rupee"></i> icon-rupee <span class="muted">(alias)</span></div>
+
+          <div class="span3">jpy"><i class="icon-jpy"></i> icon-jpy</div>
+
+          <div class="span3">jpy"><i class="icon-yen"></i> icon-yen <span class="muted">(alias)</span></div>
+
+          <div class="span3">cny"><i class="icon-cny"></i> icon-cny</div>
+
+          <div class="span3">cny"><i class="icon-renminbi"></i> icon-renminbi <span class="muted">(alias)</span></div>
+
+          <div class="span3">krw"><i class="icon-krw"></i> icon-krw</div>
+
+          <div class="span3">krw"><i class="icon-won"></i> icon-won <span class="muted">(alias)</span></div>
+
+          <div class="span3">btc"><i class="icon-btc"></i> icon-btc</div>
+
+          <div class="span3">btc"><i class="icon-bitcoin"></i> icon-bitcoin <span class="muted">(alias)</span></div>
+
+          <div class="span3">file"><i class="icon-file"></i> icon-file</div>
+
+          <div class="span3">file-text"><i class="icon-file-text"></i> icon-file-text</div>
+
+          <div class="span3">sort-by-alphabet"><i class="icon-sort-by-alphabet"></i> icon-sort-by-alphabet</div>
+
+          <div class="span3">sort-by-alphabet-alt"><i class="icon-sort-by-alphabet-alt"></i> icon-sort-by-alphabet-alt</div>
+
+          <div class="span3">sort-by-attributes"><i class="icon-sort-by-attributes"></i> icon-sort-by-attributes</div>
+
+          <div class="span3">sort-by-attributes-alt"><i class="icon-sort-by-attributes-alt"></i> icon-sort-by-attributes-alt</div>
+
+          <div class="span3">sort-by-order"><i class="icon-sort-by-order"></i> icon-sort-by-order</div>
+
+          <div class="span3">sort-by-order-alt"><i class="icon-sort-by-order-alt"></i> icon-sort-by-order-alt</div>
+
+          <div class="span3">thumbs-up"><i class="icon-thumbs-up"></i> icon-thumbs-up</div>
+
+          <div class="span3">thumbs-down"><i class="icon-thumbs-down"></i> icon-thumbs-down</div>
+
+          <div class="span3">youtube-sign"><i class="icon-youtube-sign"></i> icon-youtube-sign</div>
+
+          <div class="span3">youtube"><i class="icon-youtube"></i> icon-youtube</div>
+
+          <div class="span3">xing"><i class="icon-xing"></i> icon-xing</div>
+
+          <div class="span3">xing-sign"><i class="icon-xing-sign"></i> icon-xing-sign</div>
+
+          <div class="span3">youtube-play"><i class="icon-youtube-play"></i> icon-youtube-play</div>
+
+          <div class="span3">dropbox"><i class="icon-dropbox"></i> icon-dropbox</div>
+
+          <div class="span3">stackexchange"><i class="icon-stackexchange"></i> icon-stackexchange</div>
+
+          <div class="span3">instagram"><i class="icon-instagram"></i> icon-instagram</div>
+
+          <div class="span3">flickr"><i class="icon-flickr"></i> icon-flickr</div>
+
+          <div class="span3">adn"><i class="icon-adn"></i> icon-adn</div>
+
+          <div class="span3">bitbucket"><i class="icon-bitbucket"></i> icon-bitbucket</div>
+
+          <div class="span3">bitbucket-sign"><i class="icon-bitbucket-sign"></i> icon-bitbucket-sign</div>
+
+          <div class="span3">tumblr"><i class="icon-tumblr"></i> icon-tumblr</div>
+
+          <div class="span3">tumblr-sign"><i class="icon-tumblr-sign"></i> icon-tumblr-sign</div>
+
+          <div class="span3">long-arrow-down"><i class="icon-long-arrow-down"></i> icon-long-arrow-down</div>
+
+          <div class="span3">long-arrow-up"><i class="icon-long-arrow-up"></i> icon-long-arrow-up</div>
+
+          <div class="span3">long-arrow-left"><i class="icon-long-arrow-left"></i> icon-long-arrow-left</div>
+
+          <div class="span3">long-arrow-right"><i class="icon-long-arrow-right"></i> icon-long-arrow-right</div>
+
+          <div class="span3">apple"><i class="icon-apple"></i> icon-apple</div>
+
+          <div class="span3">windows"><i class="icon-windows"></i> icon-windows</div>
+
+          <div class="span3">android"><i class="icon-android"></i> icon-android</div>
+
+          <div class="span3">linux"><i class="icon-linux"></i> icon-linux</div>
+
+          <div class="span3">dribbble"><i class="icon-dribbble"></i> icon-dribbble</div>
+
+          <div class="span3">skype"><i class="icon-skype"></i> icon-skype</div>
+
+          <div class="span3">foursquare"><i class="icon-foursquare"></i> icon-foursquare</div>
+
+          <div class="span3">trello"><i class="icon-trello"></i> icon-trello</div>
+
+          <div class="span3">female"><i class="icon-female"></i> icon-female</div>
+
+          <div class="span3">male"><i class="icon-male"></i> icon-male</div>
+
+          <div class="span3">gittip"><i class="icon-gittip"></i> icon-gittip</div>
+
+          <div class="span3">sun"><i class="icon-sun"></i> icon-sun</div>
+
+          <div class="span3">moon"><i class="icon-moon"></i> icon-moon</div>
+
+          <div class="span3">archive"><i class="icon-archive"></i> icon-archive</div>
+
+          <div class="span3">bug"><i class="icon-bug"></i> icon-bug</div>
+
+          <div class="span3">vk"><i class="icon-vk"></i> icon-vk</div>
+
+          <div class="span3">weibo"><i class="icon-weibo"></i> icon-weibo</div>
+
+          <div class="span3">renren"><i class="icon-renren"></i> icon-renren</div>
+
         </div>
-      </section>
-    </c-main-content>
+      </div>
+    </section>
+  </c-main-content>
 
-    <c-corporate-footer></c-corporate-footer>
+  <c-corporate-footer></c-corporate-footer>
 
-    <script src="js/ux-library.js"></script>
-  </body>
+  <script src="js/ux-library.js"></script>
+</body>
 </html>
